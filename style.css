@@ -1,0 +1,108 @@
+:root {
+    --border-declaration: 10px solid yellow;
+}
+
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background: black;
+    /* font-size: 30px; */
+    display: flex;
+    /* align-items: center; -------------why won't this center the box?*/ 
+    justify-content: center;
+    
+    
+}
+
+
+
+.welcome-message {
+    border: var(--border-declaration);
+    color:white;
+    text-align: center;
+    justify-content: center;
+}
+
+
+h1 {
+    padding: 40px;
+    font-size: 50px;;
+
+}
+
+h1 span {
+    font-size: 30px;
+    font-style: italic;
+}
+
+
+p {
+    text-align: center;
+    padding: 20px;
+    line-height: 2;
+}
+
+
+#start-btn {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-color: yellow;
+}
+
+
+header {
+    padding-left: 10px;
+    padding-right: 10px;;
+    border: var(--border-declaration);
+    background-color: red;
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+}
+
+
+hr {
+    height: 5px;
+    border-width: 0;
+    background-color: yellow;
+}
+
+
+.question-card {
+    padding: 10px;
+    border: 5px solid yellow;
+    background: white;
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 10px;
+    color: black;
+    font-size: 30px;
+}
+
+ul {
+    list-style: none;
+    padding-top: 10px;
+    font-size: 20px;
+    color: black;
+}
+
+li {
+    border: 2px solid red;
+    margin-top: 10px;
+    padding: 5px;
+    padding-left: 25px;
+}
