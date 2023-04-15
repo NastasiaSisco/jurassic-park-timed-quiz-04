@@ -15,8 +15,6 @@ body {
     display: flex;
     /* align-items: center; -------------why won't this center the box?*/ 
     justify-content: center;
-    
-    
 }
 
 
@@ -48,7 +46,7 @@ p {
 }
 
 
-#start-btn {
+#start-btn, #next-btn {
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 10px;
