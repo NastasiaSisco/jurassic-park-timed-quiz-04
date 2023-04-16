@@ -47,7 +47,7 @@ p {
 
 
 #start-btn, #next-btn,
-#submit-btn, button {
+button {
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 10px;
@@ -58,6 +58,17 @@ p {
     border-color: yellow;
 }
 
+#submit-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-color: yellow;
+}
 
 header {
     padding-left: 10px;
