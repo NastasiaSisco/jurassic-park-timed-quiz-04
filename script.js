@@ -1,12 +1,24 @@
-// declare in JS that you're creating a variable from an element on another page. Search the HTML ^.document^ by using ^.querySelector()^ method
+// --------BELOW-------
+// pulling elements in from HTML
+// --------BELOW-------
 var startGameBtn = document.getElementById("start-btn");
 
 var quizBoxElement = document.querySelector(".quiz-box");
 var welcomeBoxElement = document.querySelector(".welcome-message");
 
+var resultH3 = document.querySelector("h3");
 
 
-// list of all questions in an Array, but the actual questions and answers are objects inside the overall array 
+// --------BELOW-------
+// setting global variables
+// --------BELOW-------
+var correctAnswer = 0;
+
+
+
+// --------BELOW-------
+// list of questions and answers
+// --------BELOW-------
 questionsList = [
     {
         question: "Which 3 doctors are invited to endorse the island?",
@@ -105,7 +117,9 @@ questionsList = [
 
 
 
-// on pageload, only show the welcome message
+// --------BELOW-------
+// page load welcome 
+// --------BELOW-------
 function welcomePage() {
     welcomeBoxElement.style.display = "block"
     quizBoxElement.style.display = "none"
@@ -115,16 +129,15 @@ welcomePage();
 
 
 
-var resultH3 = document.querySelector("h3");
-var correctAnswer = 0;
-
-
-
+// --------BELOW-------
+// start quiz
+// --------BELOW-------
 function startQuiz () {
     quizBoxElement.style.display = "block";
 
-    // questionsList = 0;
-
+// --------BELOW-------
+// pulling in elements from HTML
+// --------BELOW-------
     var questionH2 = document.querySelector("h2");
     
     var opt1 = document.querySelector("#option1");
@@ -132,7 +145,9 @@ function startQuiz () {
     var opt3 = document.querySelector("#option3");
     var opt4 = document.querySelector("#option4");
     
-    
+// --------BELOW-------
+// setting text content to appropriate question/choices on list
+// --------BELOW-------
     questionH2.textContent = questionsList[0].question;
 
     opt1.textContent = questionsList[0].choices[0].choice;
@@ -140,13 +155,23 @@ function startQuiz () {
     opt3.textContent = questionsList[0].choices[2].choice;
     opt4.textContent = questionsList[0].choices[3].choice;
 
+// --------BELOW-------
+// evaluate if choice is true or false
+// --------BELOW-------
     opt1.value = questionsList[0].choices[0].correctChoice;
     opt2.value = questionsList[0].choices[1].correctChoice;
     opt3.value = questionsList[0].choices[2].correctChoice;
     opt4.value = questionsList[0].choices[3].correctChoice;
 
+// --------BELOW-------
+// setting answer to empty
+// --------BELOW-------
     var answer = "";
 
+// --------BELOW-------
+// creating event listeners to change selected choice to yellow and
+// setting answer to that particular value
+// --------BELOW-------
     opt1.addEventListener("click", function() {
         opt1.style.backgroundColor = "yellow"
         answer = opt1.value;
@@ -167,9 +192,15 @@ function startQuiz () {
         answer = opt4.value;
     })
     
-    // evaluate if correct
+// --------BELOW-------
+// grabbing submit button from HTML
+// --------BELOW-------
     evalSubmit = document.querySelector("#submit-btn")
 
+// --------BELOW-------
+// evaluating if answer is correct choice and
+// displaying corresponding message
+// --------BELOW-------
     evalSubmit.addEventListener("click", function() {
         if (answer == true) {
             resultH3.textContent = "Result: Correct!";
@@ -181,46 +212,14 @@ function startQuiz () {
 
 
 
-    console.log(opt3.value)
+    // console.log(opt3.value)
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // var opt1 = document.getElementById("option1");
-    // var opt2 = document.getElementById("option2");
-    // var opt3 = document.getElementById("option3");
-    // var opt4 = document.getElementById("option4");
-
-    // opt1.textContent = questionsList[0].question;
-
-    // li1.appendChild(opt1);
-
-    // console.log(questionH2);
-    // console.log(opt1);
-    // console.log(li1);
-
-
-
-
-// attach an event listener to the newly declared variable with .addEventListener() method
-// hide the welcome page after startGameBtn is clicked
+// --------BELOW-------
+// event listener to start quiz
+// --------BELOW-------
 startGameBtn.addEventListener("click", function() {
     welcomeBoxElement.style.display = "none";
     
