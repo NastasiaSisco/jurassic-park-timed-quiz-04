@@ -22,15 +22,9 @@ Questions will appear on page. Select your choice with a click then click submit
 * If timer runs out, a loss is recorded.
 * If quiz is completed within time limit, score is calculated and a prompt will appear so user can add initials to "leader board" which is saved to localStorage and retrieved later.
 
-Acceptance Criteria from assignment:
-GIVEN I am taking a quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+### Check it Out
+
+Deployed: <https://nastasiasisco.github.io/jurassic-park-timed-quiz-04/>
+
+![Welcome Page](./assets/screenshots/welcome%20screenshot.png)
+![Quiz Page](./assets/screenshots/quiz%20screenshot.png)
