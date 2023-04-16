@@ -6,28 +6,6 @@ var welcomeBoxElement = document.querySelector(".welcome-message");
 
 
 
-
-// on pageload, only show the welcome message
-function welcomePage() {
-    if (quizBoxElement.style.display === "none") {
-        quizBoxElement.style.display = "block";
-    } else {
-        quizBoxElement.style.display = "none";
-    }
-}
-
-welcomePage();
-
-
-// attach an event listener to the newly declared variable with ^.addEventListener() method
-// hide the welcome page after startGameBtn is clicked
-startGameBtn.addEventListener("click", function() {
-    welcomeBoxElement.style.display = "none";
-    quizBoxElement.style.display = "block";
-});
-
-
-
 // list of all questions in an Array, but the actual questions and answers are objects inside the overall array 
 questionsList = [
     {
@@ -76,7 +54,7 @@ questionsList = [
         ]
     },
     {
-        question: "How does Lex get Jurassic Park's security back online?"
+        question: "How does Lex get Jurassic Park's security back online?",
         choices: [
             {choice: "She's a computer hacker familiar with MacOS systems", correctChoice: false},
             {choice: "She's a computer hacker familiar with JavaScript", correctChoice: false},
@@ -114,10 +92,139 @@ questionsList = [
     {
         question: 'Who said: "life finds a way"?',
         choices: [
-            {choice: "Lex", correctChoice: false},
+            {
+                choice: "Lex", 
+                correctChoice: false},
+
             {choice: "Laura", correctChoice: false},
             {choice: "A velociraptor", correctChoice: true},
             {choice: "A T-Rex", correctChoice: false}
         ]
     }
 ]
+
+
+
+// on pageload, only show the welcome message
+function welcomePage() {
+    welcomeBoxElement.style.display = "block"
+    quizBoxElement.style.display = "none"
+}
+
+welcomePage();
+
+
+
+var resultH3 = document.querySelector("h3");
+var correctAnswer = 0;
+
+
+
+function startQuiz () {
+    quizBoxElement.style.display = "block";
+
+    // questionsList = 0;
+
+    var questionH2 = document.querySelector("h2");
+    
+    var opt1 = document.querySelector("#option1");
+    var opt2 = document.querySelector("#option2");
+    var opt3 = document.querySelector("#option3");
+    var opt4 = document.querySelector("#option4");
+    
+    
+    questionH2.textContent = questionsList[0].question;
+
+    opt1.textContent = questionsList[0].choices[0].choice;
+    opt2.textContent = questionsList[0].choices[1].choice;
+    opt3.textContent = questionsList[0].choices[2].choice;
+    opt4.textContent = questionsList[0].choices[3].choice;
+
+    opt1.value = questionsList[0].choices[0].correctChoice;
+    opt2.value = questionsList[0].choices[1].correctChoice;
+    opt3.value = questionsList[0].choices[2].correctChoice;
+    opt4.value = questionsList[0].choices[3].correctChoice;
+
+    var answer = "";
+
+    opt1.addEventListener("click", function() {
+        opt1.style.backgroundColor = "yellow"
+        answer = opt1.value;
+    })
+    
+    opt2.addEventListener("click", function() {
+        opt2.style.backgroundColor = "yellow"
+        answer = opt2.value;
+    })
+
+    opt3.addEventListener("click", function() {
+        opt3.style.backgroundColor = "yellow"
+        answer = opt3.value;
+    })
+
+    opt4.addEventListener("click", function() {
+        opt4.style.backgroundColor = "yellow"
+        answer = opt4.value;
+    })
+    
+    // evaluate if correct
+    evalSubmit = document.querySelector("#submit-btn")
+
+    evalSubmit.addEventListener("click", function() {
+        if (answer == true) {
+            resultH3.textContent = "Result: Correct!";
+            correctAnswer++;
+        } else {
+            resultH3.textContent = "Result: Incorrect!"
+        }
+    })
+
+
+
+    console.log(opt3.value)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var opt1 = document.getElementById("option1");
+    // var opt2 = document.getElementById("option2");
+    // var opt3 = document.getElementById("option3");
+    // var opt4 = document.getElementById("option4");
+
+    // opt1.textContent = questionsList[0].question;
+
+    // li1.appendChild(opt1);
+
+    // console.log(questionH2);
+    // console.log(opt1);
+    // console.log(li1);
+
+
+
+
+// attach an event listener to the newly declared variable with .addEventListener() method
+// hide the welcome page after startGameBtn is clicked
+startGameBtn.addEventListener("click", function() {
+    welcomeBoxElement.style.display = "none";
+    
+    startQuiz();
+});
+
+
