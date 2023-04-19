@@ -10,6 +10,7 @@
 }
 
 body {
+    margin-top: 200px;
     background: black;
     /* font-size: 30px; */
     display: flex;
@@ -24,6 +25,7 @@ body {
     color:white;
     text-align: center;
     justify-content: center;
+    margin-top: 200px;
 }
 
 
