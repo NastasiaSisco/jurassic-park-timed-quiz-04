@@ -13,7 +13,7 @@ var resultH3 = document.querySelector("h3");
 // setting global variables
 // --------BELOW-------
 var correctAnswer = 0;
-var currentQuestionArray = 0;
+var currentQuestionArrayIndex = 0;
 
 
 
@@ -31,7 +31,7 @@ questionsList = [
         ]
     },
     {
-        question: 'Why are there kids on the island"?',
+        question: "Why are there kids on the island?",
         choices: [
             { choice: "They're the CEO's grandchildren", correctChoice: true },
             { choice: "They're the lawyer's kids", correctChoice: false },
@@ -99,25 +99,19 @@ questionsList = [
             { choice: "A herd of Gallamimus", correctChoice: true },
             { choice: "A flock of Pteradons", correctChoice: false },
             { choice: "A a pack of Velociraptors", correctChoice: false },
-            { choice: "A pack of Compies", correctChoice: false }
+            { choice: "A murder of Compies", correctChoice: false }
         ]
     },
     {
         question: 'Who said: "life finds a way"?',
         choices: [
-            {
-                choice: "Lex",
-                correctChoice: false
-            },
-
+            { choice: "Lex", correctChoice: false },
             { choice: "Laura", correctChoice: false },
-            { choice: "A velociraptor", correctChoice: true },
-            { choice: "A T-Rex", correctChoice: false }
+            { choice: "Ian", correctChoice: true },
+            { choice: "Alan", correctChoice: false }
         ]
     }
 ]
-
-
 
 // --------BELOW-------
 // page load welcome 
@@ -139,7 +133,6 @@ function startQuiz() {
 
     // --------BELOW-------
     // pulling in elements from HTML
-    // --------BELOW-------
     var questionH2 = document.querySelector("h2");
 
     var opt1 = document.querySelector("#option1");
@@ -149,10 +142,10 @@ function startQuiz() {
 
     // --------BELOW-------
     // setting text content to appropriate question/choices on list
-    // --------BELOW-------
+    // --------
     // 10/09/23 update: dang! So close! I needed to have the startQuiz function have a function inside it that keeps track of what index in the questionList array we're at and go/tally from there
     function updateQuestion() {
-        const currentQuestion = questionsList[currentQuestionArray];
+        const currentQuestion = questionsList[currentQuestionArrayIndex];
         questionH2.textContent = currentQuestion.question;
 
         opt1.textContent = currentQuestion.choices[0].choice;
@@ -162,7 +155,6 @@ function startQuiz() {
 
         // --------BELOW-------
         // evaluate if choice is true or false
-        // --------BELOW-------
         opt1.value = currentQuestion.choices[0].correctChoice;
         opt2.value = currentQuestion.choices[1].correctChoice;
         opt3.value = currentQuestion.choices[2].correctChoice;
@@ -170,8 +162,13 @@ function startQuiz() {
 
         // --------BELOW-------
         // setting answer to empty
-        // --------BELOW-------
         var answer = "";
+
+        // clear the highlight color
+        opt1.style.backgroundColor = "";
+        opt2.style.backgroundColor = "";
+        opt3.style.backgroundColor = "";
+        opt4.style.backgroundColor = "";
     }
     updateQuestion();
     // --------BELOW-------
@@ -215,9 +212,9 @@ function startQuiz() {
             resultH3.textContent = "Result: Incorrect!"
         }
 
-        currentQuestionArray++;
+        currentQuestionArrayIndex++;
 
-        if (currentQuestionArray < questionsList.length) {
+        if (currentQuestionArrayIndex < questionsList.length) {
             updateQuestion();
         } else {
             resultH3.textContent = `Thanks for playing! Correct Answers: ${correctAnswer}/${questionsList.length}`
@@ -225,8 +222,6 @@ function startQuiz() {
     });
 
 
-
-    // console.log(opt3.value)
 }
 
 
