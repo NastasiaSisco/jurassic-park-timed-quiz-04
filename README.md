@@ -24,7 +24,7 @@ Questions will appear on page. Select your choice with a click then click submit
 
 ### Check it Out
 
-Deployed: <https://nastasiasisco.github.io/jurassic-park-timed-quiz-04/>
+Deployed: <https://stasiadiamond.github.io/jurassic-park-timed-quiz-04/>
 
 ![Welcome Page](./assets/screenshots/welcome%20screenshot.png)
 ![Quiz Page](./assets/screenshots/quiz%20screenshot.png)
